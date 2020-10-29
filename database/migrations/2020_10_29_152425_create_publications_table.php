@@ -18,7 +18,7 @@ class CreatePublicationsTable extends Migration
             $table->string('name');
             $table->string('logo');
             $table->text('description');
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes('deleted_at', 0);
             $table->timestamps();
         });
     }

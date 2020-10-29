@@ -23,7 +23,7 @@ class CreateBooksTable extends Migration
             $table->integer('total_copies');
             $table->integer('available_copies');
             $table->foreign('publication_id')->references('id')->on('publications');
-            $table->timestamp('deleted_at');
+            $table->softDeletes('deleted_at', 0);
             $table->timestamps();
         });
     }

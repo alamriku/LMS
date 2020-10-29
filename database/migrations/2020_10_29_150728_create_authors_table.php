@@ -18,7 +18,7 @@ class CreateAuthorsTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->text('description');
-            $table->timestamp('deleted_at');
+            $table->softDeletes('deleted_at', 0);
             $table->timestamps();
         });
     }

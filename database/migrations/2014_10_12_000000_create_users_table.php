@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('role');
             $table->boolean('is_banned');
-            $table->timestamp('deleted_at')->nullable();
+            $table->softDeletes('deleted_at', 0);
             $table->rememberToken();
             $table->timestamps();
         });

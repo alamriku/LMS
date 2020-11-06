@@ -20,7 +20,7 @@ class CreateBookCopiesTable extends Migration
             $table->string('edition');
             $table->string('condition');
             $table->text('description');
-            $table->dateTime('published_date');
+            $table->timestamp('published_date');
             $table->boolean('is_available');
             $table->integer('added_by');
             $table->foreign('book_id')->references('id')->on('books');

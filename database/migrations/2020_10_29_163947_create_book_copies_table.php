@@ -23,7 +23,7 @@ class CreateBookCopiesTable extends Migration
             $table->timestamp('published_date');
             $table->boolean('is_available')->default(true);
             $table->integer('added_by');
-            $table->foreign('book_id')->references('id')->on('books');
+
             $table->softDeletes('deleted_at', 0);
             $table->timestamps();
         });

@@ -21,7 +21,7 @@ class CreateBooksTable extends Migration
             $table->unsignedBigInteger('publication_id');
             $table->string('isbn_number');
             $table->integer('total_copies')->default(0);
-            $table->integer('available_copies');
+            $table->integer('available_copies')->default(0);
             $table->foreign('publication_id')->references('id')->on('publications');
             $table->softDeletes('deleted_at', 0);
             $table->timestamps();

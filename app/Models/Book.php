@@ -12,4 +12,8 @@ class Book extends Model
     public function authors(){
         return $this->belongsToMany('App\Models\Author')->using('App\Models\AuthorBook');
     }
+
+    public function publication(){
+        return $this->belongsTo('App\Models\Publication');
+    }
 }

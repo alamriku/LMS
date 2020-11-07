@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Publication extends Model
 {
     use HasFactory;
+
+    public function publicationBooks(){
+        return $this->hasMany('App\Models\Book');
+    }
 }

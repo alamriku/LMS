@@ -20,4 +20,8 @@ class Book extends Model
     public function genres(){
         return $this->belongsToMany('App\Models\Genre')->using('App\Models\BookGenre')->withTimestamps();
     }
+
+    public function bookOfCopies(){
+        return $this->hasMany('App\Models\BookCopy');
+    }
 }

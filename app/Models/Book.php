@@ -16,4 +16,8 @@ class Book extends Model
     public function publication(){
         return $this->belongsTo('App\Models\Publication');
     }
+
+    public function genres(){
+        return $this->belongsToMany('App\Models\Genre')->using('App\Models\BookGenre')->withTimestamps();
+    }
 }

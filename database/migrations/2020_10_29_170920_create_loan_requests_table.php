@@ -20,7 +20,6 @@ class CreateLoanRequestsTable extends Migration
             $table->unsignedBigInteger('status_changed_by');
             $table->string('reason');
             $table->timestamp('status_change_date');
-
             $table->softDeletes();
             $table->timestamps();
         });

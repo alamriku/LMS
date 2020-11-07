@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class BookUser extends Model
 {
     use HasFactory;
+
+    public function userHaveCopy(){
+        return $this->belongsTo('App\Models\BookCopy');
+    }
 }

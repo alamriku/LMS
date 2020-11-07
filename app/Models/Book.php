@@ -24,4 +24,6 @@ class Book extends Model
     public function bookOfCopies(){
         return $this->hasMany('App\Models\BookCopy');
     }
+
+
 }

@@ -12,4 +12,8 @@ class BookUser extends Model
     public function userHaveCopy(){
         return $this->belongsTo('App\Models\BookCopy');
     }
+
+    public function bookOfUser(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

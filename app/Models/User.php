@@ -44,4 +44,8 @@ class User extends Authenticatable
     public function userHaveBook(){
         return $this->hasMany('App\Models\BookUser');
     }
+
+    public function addedCopy(){
+        return $this->hasMany('App\Models\BookCopy','added_by');
+    }
 }

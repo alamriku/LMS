@@ -16,4 +16,8 @@ class BookCopy extends Model
     public function bookUsers(){
         return $this->hasMany('App\Models\BookUser');
     }
+
+    public function CopyAddedBy(){
+        return $this->belongsTo('App\Models\User','added_by');
+    }
 }

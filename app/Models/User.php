@@ -48,4 +48,12 @@ class User extends Authenticatable
     public function addedCopy(){
         return $this->hasMany('App\Models\BookCopy','added_by');
     }
+
+    public function returnUser(){
+        return $this->hasMany('App\Models\ReturnRequest');
+    }
+
+    public function loanUser(){
+        return $this->hasMany('App\Models\LoanRequest');
+    }
 }

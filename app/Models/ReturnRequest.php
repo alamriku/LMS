@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ReturnRequest extends Model
 {
     use HasFactory;
+
+    public function returnByUser(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

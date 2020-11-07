@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class LoanRequest extends Model
 {
     use HasFactory;
+
+    public function loanByUser(){
+        return $this->belongsTo('App\Models\User');
+    }
 }

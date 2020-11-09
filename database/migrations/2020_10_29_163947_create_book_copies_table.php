@@ -22,8 +22,9 @@ class CreateBookCopiesTable extends Migration
             $table->text('description');
             $table->timestamp('published_date');
             $table->boolean('is_available')->default(true);
-            $table->integer('added_by');
-
+            $table->unsignedBigInteger('added_by');
+            $table->foreign('book_id')->references('id')->on('books');
+            $table->foreign('added_by')->references('id')->on('users');
             $table->softDeletes('deleted_at', 0);
             $table->timestamps();
         });
@@ -36,6 +37,10 @@ class CreateBookCopiesTable extends Migration
      */
     public function down()
     {
+        Schema::table('book_copies', function (Blueprint $table) {
+            $table->dropForeign(['book_id']);
+            $table->dropForeign(['added_by']);
+        });
         Schema::dropIfExists('book_copies');
     }
 }

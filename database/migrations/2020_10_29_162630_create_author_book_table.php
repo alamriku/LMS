@@ -18,7 +18,8 @@ class CreateAuthorBookTable extends Migration
             $table->unsignedBigInteger('author_id');
             $table->unsignedBigInteger('book_id');
             $table->string('role');
-
+            $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreign('book_id')->references('id')->on('books');
             $table->timestamps();
         });
     }
@@ -30,6 +31,10 @@ class CreateAuthorBookTable extends Migration
      */
     public function down()
     {
+        Schema::table('author_book', function (Blueprint $table) {
+            $table->dropForeign(['author_id']);
+            $table->dropForeign(['book_id']);
+        });
         Schema::dropIfExists('author_book');
     }
 }

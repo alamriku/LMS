@@ -21,6 +21,8 @@ class CreateLoanRequestsTable extends Migration
             $table->string('reason');
             $table->timestamp('status_change_date');
             $table->softDeletes();
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('status_changed_by')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -32,6 +34,10 @@ class CreateLoanRequestsTable extends Migration
      */
     public function down()
     {
+        Schema::table('loan_requests', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['status_changed_by']);
+        });
         Schema::dropIfExists('loan_requests');
     }
 }

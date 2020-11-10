@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class BookUser extends Model
 {
     use HasFactory,SoftDeletes;
-    public function userHaveCopy()
+    public function copies()
     {
         return $this->belongsTo(BookCopy::class);
     }
 
-    public function bookOfUser()
+    public function info()
     {
         return $this->belongsTo(User::class);
     }

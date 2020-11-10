@@ -17,12 +17,12 @@ class BookCopy extends Model
         return $this->belongsTo(Book::class);
     }
 
-    public function bookUsers()
+    public function carrier()
     {
         return $this->hasMany(BookUser::class);
     }
 
-    public function CopyAddedBy()
+    public function addedBy()
     {
         return $this->belongsTo(User::class,'added_by');
     }

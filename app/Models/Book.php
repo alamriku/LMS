@@ -25,7 +25,7 @@ class Book extends Model
         return $this->belongsToMany(Genre::class)->using(BookGenre::class)->withTimestamps();
     }
 
-    public function bookOfCopies()
+    public function copies()
     {
         return $this->hasMany(BookCopy::class);
     }

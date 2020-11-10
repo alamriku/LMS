@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Genre extends Model
 {
     use HasFactory,SoftDeletes;
-    public function GenreBooks()
+    public function books()
     {
         return $this->belongsToMany(Book::class)->using(BookGenre::class)->withTimestamps();
     }

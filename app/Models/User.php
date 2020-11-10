@@ -61,4 +61,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(LoanRequest::class);
     }
+
+    public function changedLoanStatus()
+    {
+        return $this->hasMany(LoanRequest::class,'status_changed_by');
+    }
+    public function changedReturnStatus()
+    {
+        return $this->hasMany(ReturnRequest::class,'status_changed_by');
+    }
 }

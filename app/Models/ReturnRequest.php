@@ -14,4 +14,8 @@ class ReturnRequest extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function statusChangedBy()
+    {
+        return $this->belongsTo(User::class,'status_changed_by');
+    }
 }

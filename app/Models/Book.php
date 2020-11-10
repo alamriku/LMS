@@ -4,24 +4,29 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
-    use HasFactory;
+    use HasFactory,SoftDeletes;
 
-    public function authors(){
+    public function authors()
+    {
         return $this->belongsToMany('App\Models\Author')->using('App\Models\AuthorBook');
     }
 
-    public function publication(){
+    public function publication()
+    {
         return $this->belongsTo('App\Models\Publication');
     }
 
-    public function genres(){
+    public function genres()
+    {
         return $this->belongsToMany('App\Models\Genre')->using('App\Models\BookGenre')->withTimestamps();
     }
 
-    public function bookOfCopies(){
+    public function bookOfCopies()
+    {
         return $this->hasMany('App\Models\BookCopy');
     }
 

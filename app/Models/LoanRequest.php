@@ -10,7 +10,7 @@ class LoanRequest extends Model
 {
     use HasFactory,SoftDeletes;
     const Pending = 'Pending';
-    public function loanByUser()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }

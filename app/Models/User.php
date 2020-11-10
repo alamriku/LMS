@@ -41,19 +41,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function userHaveBook(){
+    public function userHaveBook()
+    {
         return $this->hasMany('App\Models\BookUser');
     }
 
-    public function addedCopy(){
+    public function addedCopy()
+    {
         return $this->hasMany('App\Models\BookCopy','added_by');
     }
 
-    public function returnUser(){
+    public function returnUser()
+    {
         return $this->hasMany('App\Models\ReturnRequest');
     }
 
-    public function loanUser(){
+    public function loanUser()
+    {
         return $this->hasMany('App\Models\LoanRequest');
     }
 }

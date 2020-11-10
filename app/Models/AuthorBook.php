@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class AuthorBook extends Pivot
 {
-    public $incrementing = true;
     use HasFactory;
+    public $incrementing = true;
 }

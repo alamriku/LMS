@@ -10,7 +10,7 @@ class Publication extends Model
 {
     use HasFactory,SoftDeletes;
 
-    public function publicationBooks()
+    public function books()
     {
         return $this->hasMany(Book::class);
     }

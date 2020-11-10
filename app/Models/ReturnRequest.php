@@ -10,7 +10,7 @@ class ReturnRequest extends Model
 {
     use HasFactory,SoftDeletes;
     const PENDING = "Pending";
-    public function returnByUser()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }

@@ -42,22 +42,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function userHaveBook()
+    public function books()
     {
         return $this->hasMany(BookUser::class);
     }
 
-    public function addedCopy()
+    public function addedCopies()
     {
         return $this->hasMany(BookCopy::class,'added_by');
     }
 
-    public function returnUser()
+    public function returns()
     {
         return $this->hasMany(ReturnRequest::class);
     }
 
-    public function loanUser()
+    public function loans()
     {
         return $this->hasMany(LoanRequest::class);
     }

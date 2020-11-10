@@ -18,7 +18,7 @@ class CreateBookCopiesTable extends Migration
             $table->string('uuid')->unique();
             $table->unsignedBigInteger('book_id');
             $table->string('edition');
-            $table->string('condition')->nullable(BookCopy::NEW_CONDITION);
+            $table->string('condition')->default(BookCopy::NEW_CONDITION);
             $table->text('description');
             $table->timestamp('published_date');
             $table->boolean('is_available')->default(true);

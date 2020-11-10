@@ -9,7 +9,8 @@ class Publication extends Model
 {
     use HasFactory;
 
-    public function publicationBooks(){
+    public function publicationBooks()
+    {
         return $this->hasMany('App\Models\Book');
     }
 }

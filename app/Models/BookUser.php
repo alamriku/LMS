@@ -9,11 +9,13 @@ class BookUser extends Model
 {
     use HasFactory;
 
-    public function userHaveCopy(){
+    public function userHaveCopy()
+    {
         return $this->belongsTo('App\Models\BookCopy');
     }
 
-    public function bookOfUser(){
+    public function bookOfUser()
+    {
         return $this->belongsTo('App\Models\User');
     }
 }

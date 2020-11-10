@@ -9,7 +9,8 @@ class Genre extends Model
 {
     use HasFactory;
 
-    public function GenreBooks(){
+    public function GenreBooks()
+    {
         return $this->belongsToMany('App\Models\Book')->using('App\Models\BookGenre')->withTimestamps();
     }
 }

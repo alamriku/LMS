@@ -18,4 +18,14 @@ class BookUser extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function loanRequest()
+    {
+        return $this->belongsTo(LoanRequest::class);
+    }
+
+    public function returnRequest()
+    {
+        return $this->belongsTo(ReturnRequest::class);
+    }
 }

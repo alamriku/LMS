@@ -19,4 +19,8 @@ class LoanRequest extends Model
     {
         return $this->belongsTo(User::class,'status_changed_by');
     }
+
+    public function forBook(){
+        return $this->hasMany(BookUser::class);
+    }
 }

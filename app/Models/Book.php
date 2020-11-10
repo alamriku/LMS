@@ -12,22 +12,22 @@ class Book extends Model
 
     public function authors()
     {
-        return $this->belongsToMany('App\Models\Author')->using('App\Models\AuthorBook');
+        return $this->belongsToMany(Author::class)->using(AuthorBook::class);
     }
 
     public function publication()
     {
-        return $this->belongsTo('App\Models\Publication');
+        return $this->belongsTo(Publication::class);
     }
 
     public function genres()
     {
-        return $this->belongsToMany('App\Models\Genre')->using('App\Models\BookGenre')->withTimestamps();
+        return $this->belongsToMany(Genre::class)->using(BookGenre::class)->withTimestamps();
     }
 
     public function bookOfCopies()
     {
-        return $this->hasMany('App\Models\BookCopy');
+        return $this->hasMany(BookCopy::class);
     }
 
 

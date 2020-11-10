@@ -12,6 +12,6 @@ class ReturnRequest extends Model
     const PENDING = "Pending";
     public function returnByUser()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 }

@@ -12,6 +12,6 @@ class Publication extends Model
 
     public function publicationBooks()
     {
-        return $this->hasMany('App\Models\Book');
+        return $this->hasMany(Book::class);
     }
 }

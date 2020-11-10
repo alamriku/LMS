@@ -14,16 +14,16 @@ class BookCopy extends Model
     const OLD_CONDITION='Old';
     public function book()
     {
-        return $this->belongsTo('App\Models\Book');
+        return $this->belongsTo(Book::class);
     }
 
     public function bookUsers()
     {
-        return $this->hasMany('App\Models\BookUser');
+        return $this->hasMany(BookUser::class);
     }
 
     public function CopyAddedBy()
     {
-        return $this->belongsTo('App\Models\User','added_by');
+        return $this->belongsTo(User::class,'added_by');
     }
 }

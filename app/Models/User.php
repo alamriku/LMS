@@ -44,21 +44,21 @@ class User extends Authenticatable
 
     public function userHaveBook()
     {
-        return $this->hasMany('App\Models\BookUser');
+        return $this->hasMany(BookUser::class);
     }
 
     public function addedCopy()
     {
-        return $this->hasMany('App\Models\BookCopy','added_by');
+        return $this->hasMany(BookCopy::class,'added_by');
     }
 
     public function returnUser()
     {
-        return $this->hasMany('App\Models\ReturnRequest');
+        return $this->hasMany(ReturnRequest::class);
     }
 
     public function loanUser()
     {
-        return $this->hasMany('App\Models\LoanRequest');
+        return $this->hasMany(LoanRequest::class);
     }
 }

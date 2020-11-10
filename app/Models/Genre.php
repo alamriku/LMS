@@ -11,6 +11,6 @@ class Genre extends Model
     use HasFactory,SoftDeletes;
     public function GenreBooks()
     {
-        return $this->belongsToMany('App\Models\Book')->using('App\Models\BookGenre')->withTimestamps();
+        return $this->belongsToMany(Book::class)->using(BookGenre::class)->withTimestamps();
     }
 }

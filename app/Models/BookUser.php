@@ -11,11 +11,11 @@ class BookUser extends Model
     use HasFactory,SoftDeletes;
     public function userHaveCopy()
     {
-        return $this->belongsTo('App\Models\BookCopy');
+        return $this->belongsTo(BookCopy::class);
     }
 
     public function bookOfUser()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 }

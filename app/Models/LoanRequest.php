@@ -12,6 +12,6 @@ class LoanRequest extends Model
     const Pending = 'Pending';
     public function loanByUser()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 }

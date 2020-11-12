@@ -15,15 +15,15 @@ class CreateBookCopiesTable extends Migration
     {
         Schema::create('book_copies', function (Blueprint $table) {
             $table->id();
-            $table->string('uuid');
+            $table->string('uuid')->unique();
             $table->unsignedBigInteger('book_id');
             $table->string('edition');
             $table->string('condition');
             $table->text('description');
             $table->timestamp('published_date');
-            $table->boolean('is_available');
+            $table->boolean('is_available')->default(true);
             $table->integer('added_by');
-            $table->foreign('book_id')->references('id')->on('books');
+
             $table->softDeletes('deleted_at', 0);
             $table->timestamps();
         });

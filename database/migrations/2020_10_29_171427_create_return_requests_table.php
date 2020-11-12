@@ -17,10 +17,10 @@ class CreateReturnRequestsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('status');
-            $table->integer('status_changed_by');
+            $table->unsignedBigInteger('status_changed_by');
             $table->string('reason');
             $table->timestamp('status_change_date');
-            $table->foreign('user_id')->references('id')->on('users');
+
             $table->softDeletes();
             $table->timestamps();
         });

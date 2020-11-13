@@ -17,7 +17,8 @@ class CreateBookGenreTable extends Migration
             $table->id();
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('genre_id');
-
+            $table->foreign('book_id')->references('id')->on('books');
+            $table->foreign('genre_id')->references('id')->on('genres');
             $table->timestamps();
         });
     }
@@ -29,6 +30,10 @@ class CreateBookGenreTable extends Migration
      */
     public function down()
     {
+        Schema::table('book_genre', function (Blueprint $table) {
+            $table->dropForeign(['book_id']);
+            $table->dropForeign(['genre_id']);
+        });
         Schema::dropIfExists('book_genre');
     }
 }

@@ -9,6 +9,7 @@
 <script src="{{asset('asset')}}/js/hoverable-collapse.js"></script>
 <script src="{{asset('asset')}}/js/template.js"></script>
 <script src="{{asset('asset')}}/js/todolist.js"></script>
+<script src="{{asset('iziToast')}}/js/iziToast.min.js"></script>
 <!-- endinject -->
 <!-- Custom js for this page-->
 <script src="{{asset('asset')}}/js/dashboard.js"></script>

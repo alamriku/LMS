@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,5 +20,7 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+Route::get('profile/{id}',[UserController::class,'profile'])->name('profile');
 
 require __DIR__.'/auth.php';

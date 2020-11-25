@@ -13,14 +13,12 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/dashboard', function () {
+
+Route::get('/', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('profile/{id}',[UserController::class,'profile'])->name('profile');
-Route::put('profile-update',[UserController::class,'profileUpdate'])->name('profile-update');
+Route::get('profile/{user}',[UserController::class,'profile'])->name('profile');
+Route::put('profile/update',[UserController::class,'profileUpdate'])->name('profile-update');
 require __DIR__.'/auth.php';

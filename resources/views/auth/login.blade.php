@@ -14,7 +14,7 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
-
+            <input type="hidden" name="is_banned" value="0">
             <!-- Email Address -->
             <div>
                 <x-label for="email" :value="__('Email')" />

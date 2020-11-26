@@ -13,6 +13,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory, Notifiable,SoftDeletes;
     const User ="User";
     const Author="Author";
+    const isBanned=1;
     /**
      * The attributes that are mass assignable.
      *
@@ -76,4 +77,5 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $query->where('role',USER::User);
     }
+
 }

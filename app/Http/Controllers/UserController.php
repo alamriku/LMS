@@ -35,7 +35,16 @@ class UserController extends Controller
            $profile->update();
            return redirect()->back()->with('success','Profile updated');
     }
-
+    public function Ban(User $user)
+    {
+        if($user->is_banned == User::isBanned){
+            $user->is_banned = 0;
+        }else{
+            $user->is_banned = 1;
+        }
+        $user->update();
+        return redirect()->back()->with('success','User Status Changed');
+    }
     public function destroy(User $user)
     {
         $user->delete();

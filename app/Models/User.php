@@ -12,7 +12,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable,SoftDeletes;
     const User ="User";
-    const Role="Role";
+    const Author="Author";
     /**
      * The attributes that are mass assignable.
      *
@@ -71,5 +71,9 @@ class User extends Authenticatable implements MustVerifyEmail
     public function changedReturnStatus()
     {
         return $this->hasMany(ReturnRequest::class,'status_changed_by');
+    }
+    public function ScopeIsUser($query)
+    {
+        return $query->where('role',USER::User);
     }
 }

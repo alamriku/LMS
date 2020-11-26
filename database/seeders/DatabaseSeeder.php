@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('users')->delete();
-         \App\Models\User::factory(1)->create();
+//        \DB::table('users')->delete();
+         \App\Models\User::factory(10)->create();
     }
 }

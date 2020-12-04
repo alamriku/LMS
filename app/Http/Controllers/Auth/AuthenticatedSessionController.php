@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
         if ($request->userType() == User::User) {
-            dd('user dash board');
+            return redirect(RouteServiceProvider::UserDashboard);
         } else {
             return redirect(RouteServiceProvider::HOME);
         }

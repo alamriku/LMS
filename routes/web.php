@@ -19,7 +19,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('admin.dashboard');
 })->middleware(['auth'])->name('dashboard');
-
+Route::get('user/dashboard',[UserController::class,'dashboard'])->name('user-dashboard');
 Route::get('profile/{user}',[UserController::class,'profile'])->name('profile');
 Route::get('user/list',[AdminController::class,'index'])->name('user-list');
 Route::delete('user/delete/{user}',[AdminController::class,'destroy'])->name('user-delete');

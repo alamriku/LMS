@@ -14,9 +14,8 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
     use SoftDeletes;
 
-    public const USER = "User";
-    public const ROLE_AUTHOR = "Author";
-    public const BANNED = 1;
+    public const ROLE_USER = "User";
+    public const ROLE_LIBRARIAN = "Librarian";
     public const PAGINATE = 5;
     /**
      * The attributes that are mass assignable.
@@ -73,12 +72,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(LoanRequest::class, 'status_changed_by');
     }
+
     public function changedReturnStatus()
     {
         return $this->hasMany(ReturnRequest::class, 'status_changed_by');
     }
+
     public function scopeIsUser($query, $type)
     {
-        return $query->where('role', USER::USER);
+        return $query->where('role', USER::ROLE_USER);
     }
 }

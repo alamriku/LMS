@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->default(User::USER);
+            $table->string('role')->default(User::ROLE_USER);
             $table->boolean('is_banned')->default(false);
             $table->softDeletes('deleted_at', 0);
             $table->rememberToken();

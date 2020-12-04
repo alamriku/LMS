@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
-        if ($request->userType() == User::USER) {
+        if ($request->userType() == User::ROLE_USER) {
             return redirect(RouteServiceProvider::DASHBOARD);
         } else {
             return redirect(RouteServiceProvider::HOME);

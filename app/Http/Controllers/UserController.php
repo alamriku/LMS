@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Services\UserService;
 
 class UserController extends Controller
 {
@@ -23,16 +23,11 @@ class UserController extends Controller
         return view('user.dashboard');
     }
 
-    public function profileUpdate(ProfileRequest $request)
+    public function profileUpdate(ProfileRequest $request, UserService $action)
     {
 
-        $profile = User::where('id', $request->id)->first();
-        $profile->name = $request->name;
-        $profile->email = $request->email;
-        if ($request->filled('password')) {
-            $profile->password = Hash::make($request->password);
-        }
-        $profile->update();
+        $profile = $action->getUser($request->id);
+        $action->updateUser($request, $profile);
         return redirect()->back()->with('success', 'Profile updated');
     }
 }

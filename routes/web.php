@@ -24,5 +24,5 @@ Route::get('profile/{user}',[UserController::class,'profile'])->name('profile');
 Route::get('user/list',[AdminController::class,'index'])->name('user-list');
 Route::delete('users/{user}/delete',[AdminController::class,'delete'])->name('user-delete');
 Route::put('profile/update',[UserController::class,'profileUpdate'])->name('profile-update');
-Route::put('users/{user}/ban',[AdminController::class,'Ban'])->name('ban-user');
+Route::put('users/{user}/ban',[AdminController::class,'ban'])->name('ban-user');
 require __DIR__.'/auth.php';

@@ -49,9 +49,9 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
 
-        Route::bind('user', function ($user) {
-            return User::where('id', $user)->firstOrFail();
-        });
+//        Route::bind('user', function ($user) {
+//            return User::where('id', $user)->firstOrFail();
+//        });
     }
 
     /**

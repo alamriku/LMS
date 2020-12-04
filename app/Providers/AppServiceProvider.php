@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Gate::define('user', function ($user) {
+        Gate::define('librarian', function ($user) {
             return $user->role == User::ROLE_LIBRARIAN;
         });
     }

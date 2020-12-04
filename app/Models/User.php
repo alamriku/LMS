@@ -17,6 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
     public const USER = "User";
     public const ROLE_AUTHOR = "Author";
     public const BANNED = 1;
+    public const PAGINATE = 5;
     /**
      * The attributes that are mass assignable.
      *

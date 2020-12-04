@@ -13,7 +13,8 @@ class AdminController extends Controller
 
     public function index()
     {
-        $users = User::paginate(5);
+        $users = User::paginate(User::PAGINATE);
+
         return view('admin.user.list', compact('users'));
     }
 
@@ -25,10 +26,11 @@ class AdminController extends Controller
             $user->is_banned = 1;
         }
         $user->update();
+
         return redirect()->back()->with('success', 'User Status Changed');
     }
 
-    public function destroy(User $user)
+    public function delete(User $user)
     {
         $user->delete();
         return redirect()->back()->with('success', 'User Deleted');

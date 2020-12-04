@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::get('user/dashboard',[UserController::class,'dashboard'])->name('user-dashboard');
 Route::get('profile/{user}',[UserController::class,'profile'])->name('profile');
 Route::get('user/list',[AdminController::class,'index'])->name('user-list');
-Route::delete('user/delete/{user}',[AdminController::class,'destroy'])->name('user-delete');
+Route::delete('users/{user}/delete',[AdminController::class,'delete'])->name('user-delete');
 Route::put('profile/update',[UserController::class,'profileUpdate'])->name('profile-update');
-Route::put('user/ban/{user}',[AdminController::class,'Ban'])->name('ban-user');
+Route::put('users/{user}/ban',[AdminController::class,'Ban'])->name('ban-user');
 require __DIR__.'/auth.php';

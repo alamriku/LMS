@@ -44,7 +44,7 @@
                                 <td class="text-center">
                                     @if($user->role == \App\Models\User::USER)
                                     <span class="sm:block">
-                                        <button onclick="confirm('Are you sure about this ?') ? document.getElementById('ban-form{{$user->id}}').submit(): event.preventDefault()" class="inline-flex items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-black-200 bg-yellow-300 px-2 py-2 hover:bg-gray-50">{{$user->is_banned == \App\Models\User::isBanned ? "un-Ban" :"Ban"}}</button>
+                                        <button onclick="confirm('Are you sure about this ?') ? document.getElementById('ban-form{{$user->id}}').submit(): event.preventDefault()" class="inline-flex items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-black-200 bg-yellow-300 px-2 py-2 hover:bg-gray-50">{{$user->is_banned == \App\Models\User::BANNED ? "un-Ban" :"Ban"}}</button>
                                     </span>
                                         <form action="{{route('ban-user',$user->id)}}" style="display: none;" id="ban-form{{$user->id}}" method="post">
                                             @csrf

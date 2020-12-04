@@ -76,7 +76,7 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(ReturnRequest::class, 'status_changed_by');
     }
-    public function ScopeIsUser($query, $type)
+    public function scopeIsUser($query, $type)
     {
         return $query->where('role', USER::USER);
     }

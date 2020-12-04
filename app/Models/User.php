@@ -15,7 +15,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use SoftDeletes;
 
     public const USER = "User";
-    public const ROLEAUTHOR = "Author";
+    public const ROLE_AUTHOR = "Author";
     public const BANNED = 1;
     /**
      * The attributes that are mass assignable.

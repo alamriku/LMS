@@ -6,6 +6,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
+        @if(Gate::allows('user'))
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="ti-palette menu-icon"></i>
@@ -19,6 +20,6 @@
                 </ul>
             </div>
         </li>
-
+        @endif
     </ul>
 </nav>

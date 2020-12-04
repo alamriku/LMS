@@ -19,7 +19,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = '/';
-    public const UserDashboard = 'user/dashboard';
+    public const DASHBOARD = 'user/dashboard';
     /**
      * The controller namespace for the application.
      *
@@ -49,8 +49,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
 
-        Route::bind('user',function ($user){
-                return User::where('id',$user)->firstOrFail();
+        Route::bind('user', function ($user) {
+            return User::where('id', $user)->firstOrFail();
         });
     }
 

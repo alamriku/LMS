@@ -19,7 +19,7 @@ class AdminController extends Controller
 
     public function ban(User $user)
     {
-        if ($user->is_banned == User::isBanned) {
+        if ($user->is_banned == User::BANNED) {
             $user->is_banned = 0;
         } else {
             $user->is_banned = 1;

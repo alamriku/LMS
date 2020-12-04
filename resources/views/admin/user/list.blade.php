@@ -42,7 +42,7 @@
                                 <td>{{$user->role}}</td>
                                 <td>{{$user->created_at}}</td>
                                 <td class="text-center">
-                                    @if($user->role == \App\Models\User::User)
+                                    @if($user->role == \App\Models\User::USER)
                                     <span class="sm:block">
                                         <button onclick="confirm('Are you sure about this ?') ? document.getElementById('ban-form{{$user->id}}').submit(): event.preventDefault()" class="inline-flex items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-black-200 bg-yellow-300 px-2 py-2 hover:bg-gray-50">{{$user->is_banned == \App\Models\User::isBanned ? "un-Ban" :"Ban"}}</button>
                                     </span>
@@ -54,7 +54,7 @@
                                 </td>
                                 <td>
 
-                                    @if($user->role == \App\Models\User::User)
+                                    @if($user->role == \App\Models\User::USER)
                                     <span class="hidden sm:block">
                                         <button class=" inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-200 bg-red-500  hover:bg-gray-50 hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" onclick="confirm('Are you sure about this ?') ? document.getElementById('delete-form{{$user->id}}').submit(): event.preventDefault()" >
                                         <!-- Heroicon name: pencil -->

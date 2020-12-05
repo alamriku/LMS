@@ -21,8 +21,13 @@ Route::get('/', function () {
 })->middleware(['auth'])->name('dashboard');
 Route::get('user/dashboard',[UserController::class,'dashboard'])->name('user-dashboard');
 Route::get('profile/{user}',[UserController::class,'profile'])->name('profile');
-Route::get('user/list',[AdminController::class,'index'])->name('user-list');
-Route::delete('users/{user}/delete',[AdminController::class,'delete'])->name('user-delete');
 Route::put('profile/update',[UserController::class,'profileUpdate'])->name('profile-update');
-Route::put('users/{user}/ban',[AdminController::class,'ban'])->name('ban-user');
+
+Route::resource('admin',AdminController::class);
+Route::prefix('admin')->group(function (){
+    Route::put('users/{user}/ban',[AdminController::class,'ban'])->name('ban-user');
+    Route::get('user/list',[AdminController::class,'index'])->name('user-list');
+    Route::delete('users/{user}/delete',[AdminController::class,'delete'])->name('user-delete');
+});
+
 require __DIR__.'/auth.php';

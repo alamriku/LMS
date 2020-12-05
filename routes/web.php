@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use \App\Http\Controllers\AuthorController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +25,7 @@ Route::get('profile/{user}',[UserController::class,'profile'])->name('profile');
 Route::put('profile/update',[UserController::class,'profileUpdate'])->name('profile-update');
 
 Route::resource('admin',AdminController::class);
+Route::resource('author',AuthorController::class);
 Route::prefix('admin')->group(function (){
     Route::put('users/{user}/ban',[AdminController::class,'ban'])->name('ban-user');
     Route::get('user/list',[AdminController::class,'index'])->name('user-list');

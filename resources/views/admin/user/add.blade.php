@@ -38,7 +38,7 @@
                         <div class="form-group row">
                             <label for="phone" class="col-sm-3 col-form-label">Phone</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="phone"  placeholder="Mobile number">
+                                <input type="text" class="form-control" id="phone" name="phone"  placeholder="Mobile number">
                                 @if($errors->has("phone"))
                                     <div class="alert alert-danger" role="alert">
                                         {{$errors->first('phone')}}

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
+use App\Services\UserService;
 use Illuminate\Http\Request;
 use App\Models\User;
+
 class AdminController extends Controller
 {
     public function __construct()
@@ -56,9 +59,10 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfileRequest $request, UserService $action)
     {
-        //
+        $action->storeUser($request);
+        return redirect()->back()->with('success', 'Librarian Added');
     }
 
     /**

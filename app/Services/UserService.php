@@ -21,4 +21,15 @@ class UserService
         }
         $profile->update();
     }
+
+    public function storeUser($request)
+    {
+        $user = new User();
+        $user->name = $request->name;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->role = User::ROLE_LIBRARIAN;
+        $user->password = Hash::make($request->password);
+        $user->save();
+    }
 }

@@ -25,9 +25,9 @@ class UserController extends Controller
 
     public function profileUpdate(ProfileRequest $request, UserService $action)
     {
-
         $profile = $action->getUser($request->id);
         $action->updateUser($request, $profile);
         return redirect()->back()->with('success', 'Profile updated');
     }
+
 }

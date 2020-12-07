@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AuthorRequest;
+use App\Models\Author;
 use App\Services\AuthorService;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-
+        $authors = Author::paginate(Author::PAGINATE);
+        return view('admin.author.list', compact('authors'));
     }
 
     /**
@@ -55,12 +57,12 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  Author  $author
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Author $author)
     {
-        //
+        return view('admin.author.edit', compact('author'));
     }
 
     /**
@@ -81,8 +83,10 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Author $author)
     {
-        //
+        $author->delete();
+        return redirect()->back()->with('success', 'Author Deleted');
+
     }
 }

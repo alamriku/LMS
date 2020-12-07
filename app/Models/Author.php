@@ -10,6 +10,7 @@ class Author extends Model
 {
     use HasFactory,SoftDeletes;
 
+    public const PAGINATE = 5;
     public function books()
     {
         return $this->belongsToMany(Book::class)->using(AuthorBook::class);

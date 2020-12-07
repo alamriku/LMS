@@ -32,4 +32,14 @@ class UserService
         $user->password = Hash::make($request->password);
         $user->save();
     }
+
+    public function banUnban($user)
+    {
+        if ($user->is_banned) {
+            $user->is_banned = 0;
+        } else {
+            $user->is_banned = 1;
+        }
+        $user->update();
+    }
 }

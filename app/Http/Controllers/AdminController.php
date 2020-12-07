@@ -9,8 +9,10 @@ use App\Models\User;
 
 class AdminController extends Controller
 {
-    public function __construct()
+    protected $userService;
+    public function __construct(UserService $user)
     {
+        $this->userService = $user;
         $this->middleware('auth');
     }
     /**
@@ -30,16 +32,10 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function ban(User $user)
     {
-
-        if ($user->is_banned) {
-            $user->is_banned = 0;
-        } else {
-            $user->is_banned = 1;
-        }
-        $user->update();
-
+        $this->userService->banUnban($user);
         return redirect()->back()->with('success', 'User Status Changed');
     }
 
@@ -59,9 +55,10 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProfileRequest $request, UserService $action)
+
+    public function store(ProfileRequest $request)
     {
-        $action->storeUser($request);
+        $this->userService->storeUser($request);
         return redirect()->back()->with('success', 'Librarian Added');
     }
 

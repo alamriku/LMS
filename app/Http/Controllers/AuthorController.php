@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
+    protected $authorService;
+
+    public function __construct(AuthorService $authorService)
+    {
+        $this->authorService = $authorService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -72,9 +79,10 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Author $author)
+    public function update(AuthorRequest $request, Author $author)
     {
-        //
+        $this->authorService->updateAuthor($request, $author);
+        return redirect()->back()->with('success', 'Author updated');
     }
 
     /**
@@ -83,6 +91,7 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(Author $author)
     {
         $author->delete();

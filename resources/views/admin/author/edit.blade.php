@@ -27,13 +27,12 @@
                             <label for="image" class="col-sm-3 col-form-label">Image</label>
                             <div class="col-sm-9">
                                 <input type="file" class="form-control" id="image"  name="image" placeholder="Email">
-                                @if($errors->has("image"))
-                                    <div class="alert alert-danger" role="alert">
-                                        {{$errors->first('image')}}
-                                    </div>
-                                @endif
+
 
                             </div>
+
+                        </div>
+                        <div class="form-group row justify-content-center">
                             <div class="bg-indigo-300">
                                 <img class="object-contain h-48 w-full" src="{{asset('/').$author->image}}">
                             </div>
@@ -42,6 +41,11 @@
                             <label for="description" class="col-sm-3 col-form-label">Description</label>
                             <div class="col-sm-9">
                                 <textarea name="description" class="form-control" id="description" cols="30" rows="10">{{$author->description}}</textarea>
+                                @if($errors->has("description"))
+                                    <div class="alert alert-danger" role="alert">
+                                        {{$errors->first('description')}}
+                                    </div>
+                                @endif
                             </div>
                         </div>
 

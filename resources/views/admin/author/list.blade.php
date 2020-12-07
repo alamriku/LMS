@@ -57,7 +57,7 @@
                                             @csrf
                                             @method("DELETE")
                                         </form>
-                                        <a href="{{route('author.edit', $author->id)}}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white-200 bg-teal-300  hover:bg-gray-50 hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        <a href="{{route('author.edit', $author)}}" class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-white-200 bg-teal-300  hover:bg-gray-50 hover:no-underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                             <!-- Heroicon name: pencil -->
                                             <svg class="-ml-1 mr-2 h-5 w-5 text-gray-500"
                                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"

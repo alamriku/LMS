@@ -87,6 +87,5 @@ class AuthorController extends Controller
     {
         $author->delete();
         return redirect()->back()->with('success', 'Author Deleted');
-
     }
 }

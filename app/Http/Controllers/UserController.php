@@ -29,5 +29,4 @@ class UserController extends Controller
         $action->updateUser($request, $profile);
         return redirect()->back()->with('success', 'Profile updated');
     }
-
 }

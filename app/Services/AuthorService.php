@@ -18,7 +18,7 @@ class AuthorService
         $author = new Author();
         $author->name = $request->name;
         $author->description = $request->name;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             if ($request->file('image')->isValid()) {
                 $author->image = $this->file->storeFile($request->file('image'));
             }
@@ -30,7 +30,7 @@ class AuthorService
     {
         $author->name = $request->name;
         $author->description = $request->name;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             if ($request->file('image')->isValid()) {
                 $this->file->removeFile($author->image);
                 $author->image = $this->file->storeFile($request->file('image'));

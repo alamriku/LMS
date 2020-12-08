@@ -27,6 +27,19 @@
 <!-- container-scroller -->
 
 @include('partials._javascript')
+@yield('js')
+@if(session()->has('success'))
+<script>
+    iziToast.show({
+        icon: 'icon-person',
+        backgroundColor:'gray',
+        title: 'Info',
+        message: '{{session('success')}}',
+        position: 'topRight', // bottomRight, bottomLeft, topRight, topLeft, topCenter, bottomCenter
+        progressBarColor: 'rgb(0, 255, 184)',
+    });
+</script>
+    @endif
 </body>
 
 </html>

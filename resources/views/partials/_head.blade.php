@@ -11,6 +11,9 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="{{asset('asset')}}/css/style.css">
+    <link rel="stylesheet" href="{{asset('iziToast')}}/css/iziToast.min.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('asset')}}/images/favicon.png" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>

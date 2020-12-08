@@ -10,9 +10,13 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable,SoftDeletes;
-    const User ="User";
-    const Role="Role";
+    use HasFactory;
+    use Notifiable;
+    use SoftDeletes;
+
+    public const ROLE_USER = "User";
+    public const ROLE_LIBRARIAN = "Librarian";
+    public const PAGINATE = 5;
     /**
      * The attributes that are mass assignable.
      *
@@ -51,7 +55,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function addedCopies()
     {
-        return $this->hasMany(BookCopy::class,'added_by');
+        return $this->hasMany(BookCopy::class, 'added_by');
     }
 
     public function returns()
@@ -66,10 +70,16 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function changedLoanStatus()
     {
-        return $this->hasMany(LoanRequest::class,'status_changed_by');
+        return $this->hasMany(LoanRequest::class, 'status_changed_by');
     }
+
     public function changedReturnStatus()
     {
-        return $this->hasMany(ReturnRequest::class,'status_changed_by');
+        return $this->hasMany(ReturnRequest::class, 'status_changed_by');
+    }
+
+    public function scopeIsUser($query, $type)
+    {
+        return $query->where('role', USER::ROLE_USER);
     }
 }

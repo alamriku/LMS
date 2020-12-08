@@ -18,9 +18,29 @@ class AuthorService
         $author = new Author();
         $author->name = $request->name;
         $author->description = $request->name;
-        if ($request->file('image')->isValid()) {
-            $author->image = $this->file->storeFile($request->file('image'));
+        if ($request->hasFile('image')) {
+            if ($request->file('image')->isValid()) {
+                $author->image = $this->file->storeFile($request->file('image'));
+            }
         }
         $author->save();
+    }
+
+    public function updateAuthor($request, $author)
+    {
+        $author->name = $request->name;
+        $author->description = $request->name;
+        if ($request->hasFile('image')) {
+            if ($request->file('image')->isValid()) {
+                $this->file->removeFile($author->image);
+                $author->image = $this->file->storeFile($request->file('image'));
+            }
+        }
+        $author->update();
+    }
+
+    public function destroyAuthor($author)
+    {
+        $author->delete();
     }
 }

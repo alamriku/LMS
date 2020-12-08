@@ -44,6 +44,7 @@ class AdminController extends Controller
         $user->delete();
         return redirect()->back()->with('success', 'User Deleted');
     }
+
     public function create()
     {
         return view('admin.user.add');

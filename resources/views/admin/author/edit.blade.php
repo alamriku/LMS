@@ -7,14 +7,14 @@
                 <div class="card-body">
                     <h4 class="card-title">Add Author</h4>
 
-                    <form class="forms-sample" action="{{route('author.update')}}" method="post" enctype="multipart/form-data">
+                    <form class="forms-sample" action="{{route('author.update',$author)}}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
                         <div class="form-group row">
                             <label for="name" class="col-sm-3 col-form-label">Name</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="name" name="name" value="{{$auther->name}}"  placeholder="Username">
+                                <input type="text" class="form-control" id="name" name="name" value="{{$author->name}}"  placeholder="Username">
                                 @if($errors->has("name"))
                                     <div class="alert alert-danger" role="alert">
                                         {{$errors->first('name')}}
@@ -34,11 +34,14 @@
                                 @endif
 
                             </div>
+                            <div class="bg-indigo-300">
+                                <img class="object-contain h-48 w-full" src="{{asset('/').$author->image}}">
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label for="description" class="col-sm-3 col-form-label">Description</label>
                             <div class="col-sm-9">
-                                <textarea name="description" class="form-control" id="description" cols="30" rows="10">value="{{$auther->description}}"</textarea>
+                                <textarea name="description" class="form-control" id="description" cols="30" rows="10">{{$author->description}}</textarea>
                             </div>
                         </div>
 

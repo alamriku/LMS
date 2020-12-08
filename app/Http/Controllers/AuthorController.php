@@ -72,7 +72,7 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Author $author)
     {
         //
     }
@@ -87,6 +87,5 @@ class AuthorController extends Controller
     {
         $author->delete();
         return redirect()->back()->with('success', 'Author Deleted');
-
     }
 }

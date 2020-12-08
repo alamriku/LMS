@@ -15,9 +15,6 @@ use \App\Http\Controllers\AuthorController;
 |
 */
 
-Route::get('/debug-sentry', function () {
-    throw new Exception('My first Sentry error!');
-});
 
 Route::get('/', function () {
     return view('admin.dashboard');

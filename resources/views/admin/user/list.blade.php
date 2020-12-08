@@ -43,14 +43,28 @@
                                 <td>{{$user->created_at}}</td>
                                 <td class="text-center">
                                     @if($user->role == \App\Models\User::ROLE_USER)
-                                    <span class="sm:block">
-                                        <button onclick="confirm('Are you sure about this ?') ? document.getElementById('ban-form{{$user->id}}').submit(): event.preventDefault()" class="inline-flex items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-black-200 bg-yellow-300 px-2 py-2 hover:bg-gray-50">{{$user->is_banned ? "un-Ban" :"Ban"}}</button>
-                                    </span>
-                                        <form action="{{route('ban-user',$user->id)}}" style="display: none;" id="ban-form{{$user->id}}" method="post">
-                                            @csrf
-                                            @method("PUT")
-                                        </form>
+                                        @if($user->is_banned)
+                                            <span class="sm:block">
+                                                 <button onclick="confirm('Are you sure about this ?') ? document.getElementById('ban-form{{$user->id}}').submit(): event.preventDefault()"
+                                                class="inline-flex items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-black-200 bg-yellow-300 px-2 py-2 hover:bg-gray-50">Un-ban</button>
+                                            </span>
+                                            <form action="{{route('unBan',$user->id)}}" style="display: none;"
+                                                  id="ban-form{{$user->id}}" method="post">
+                                                @csrf
+                                                @method("PUT")
+                                            </form>
+                                            @else
+                                            <span class="sm:block">
+                                                 <button onclick="confirm('Are you sure about this ?') ? document.getElementById('ban-form{{$user->id}}').submit(): event.preventDefault()"
+                                                         class="inline-flex items-center border border-gray-300 rounded-md shadow-sm text-sm font-medium text-black-200 bg-yellow-300 px-2 py-2 hover:bg-gray-50">Ban</button>
+                                            </span>
+                                            <form action="{{route('ban',$user->id)}}" style="display: none;"
+                                                  id="ban-form{{$user->id}}" method="post">
+                                                @csrf
+                                                @method("PUT")
+                                            </form>
                                         @endif
+                                    @endif
                                 </td>
                                 <td>
 

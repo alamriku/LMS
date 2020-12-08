@@ -25,7 +25,6 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::paginate(User::PAGINATE);
-
         return view('admin.user.list', compact('users'));
     }
 
@@ -37,7 +36,13 @@ class AdminController extends Controller
 
     public function ban(User $user)
     {
-        $this->userService->banUnban($user);
+        $this->userService->ban($user);
+        return redirect()->back()->with('success', 'User Status Changed');
+    }
+
+    public function unBan(User $user)
+    {
+        $this->userService->unBan($user);
         return redirect()->back()->with('success', 'User Status Changed');
     }
 

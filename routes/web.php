@@ -26,7 +26,8 @@ Route::put('profile/update',[UserController::class,'profileUpdate'])->name('prof
 Route::resource('admin',AdminController::class);
 Route::resource('author',AuthorController::class);
 Route::prefix('admin')->group(function (){
-    Route::put('users/{user}/ban',[AdminController::class,'ban'])->name('ban-user');
+    Route::put('users/{user}/ban',[AdminController::class,'ban'])->name('ban');
+    Route::put('users/{user}/un-ban',[AdminController::class,'unBan'])->name('unBan');
     Route::get('users',[AdminController::class,'index'])->name('user-list');
     Route::delete('users/{user}/delete',[AdminController::class,'delete'])->name('user-delete');
 });

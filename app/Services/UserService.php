@@ -33,13 +33,15 @@ class UserService
         $user->save();
     }
 
-    public function banUnban($user)
+    public function ban($user)
     {
-        if ($user->is_banned) {
-            $user->is_banned = 0;
-        } else {
-            $user->is_banned = 1;
-        }
+        $user->is_banned = 1;
+        $user->update();
+    }
+
+    public function unBan($user)
+    {
+        $user->is_banned = 0;
         $user->update();
     }
 }

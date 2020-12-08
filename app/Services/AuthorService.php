@@ -38,4 +38,9 @@ class AuthorService
         }
         $author->update();
     }
+
+    public function destroyAuthor($author)
+    {
+        $author->delete();
+    }
 }

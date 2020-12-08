@@ -52,7 +52,7 @@
                                             </svg>
 
                                         </button>
-                                        <form action="{{route('author.destroy',$author->id)}}" style="display: none;"
+                                        <form action="{{route('author.destroy',$author)}}" style="display: none;"
                                               id="delete-form{{$author->id}}" method="post">
                                             @csrf
                                             @method("DELETE")

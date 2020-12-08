@@ -94,7 +94,7 @@ class AuthorController extends Controller
 
     public function destroy(Author $author)
     {
-        $author->delete();
+        $this->authorService->destroyAuthor($author);
         return redirect()->back()->with('success', 'Author Deleted');
     }
 }

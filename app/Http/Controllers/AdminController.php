@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
+use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Http\Request;
-use App\Models\User;
 
 class AdminController extends Controller
 {
     protected $userService;
+
     public function __construct(UserService $user)
     {
         $this->userService = $user;
         $this->middleware('auth');
     }
+
     /**
      * Display a listing of the resource.
      *

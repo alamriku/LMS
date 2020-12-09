@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\Author;
+use Illuminate\Support\Arr;
 
 class AuthorService
 {
@@ -16,8 +17,8 @@ class AuthorService
     public function storeAuthor($request)
     {
         $author = new Author();
-        $author->name = $request->name;
-        $author->description = $request->name;
+        $author->name = $request["name"];
+        $author->description = $request["description"];
         if ($request->hasFile('image')) {
             if ($request->file('image')->isValid()) {
                 $author->image = $this->file->storeFile($request->file('image'));
@@ -28,8 +29,8 @@ class AuthorService
 
     public function updateAuthor($request, $author)
     {
-        $author->name = $request->name;
-        $author->description = $request->name;
+        $author->name = $request["name"];
+        $author->description = $request["description"];
         if ($request->hasFile('image')) {
             if ($request->file('image')->isValid()) {
                 $this->file->removeFile($author->image);

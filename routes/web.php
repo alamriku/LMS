@@ -29,7 +29,7 @@ Route::prefix('admin')->group(function (){
     Route::put('users/{user}/ban',[AdminController::class,'ban'])->name('ban');
     Route::put('users/{user}/un-ban',[AdminController::class,'unBan'])->name('unBan');
     Route::get('users',[AdminController::class,'index'])->name('user-list');
-    Route::delete('users/{user}/delete',[AdminController::class,'delete'])->name('user-delete');
+    Route::delete('users/{user}',[UserController::class,'destroy'])->name('user.destroy');
 });
 
 require __DIR__.'/auth.php';

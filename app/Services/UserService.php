@@ -9,15 +9,16 @@ class UserService
 {
     public function getUser($user)
     {
-        return User::where('id', $user)->first();
+        return User::find($user);
     }
 
-    public function updateUser($request, $profile)
+    public function updateUser($request, $id)
     {
-        $profile->name = $request->name;
-        $profile->email = $request->email;
-        if ($request->filled('password')) {
-            $profile->password = Hash::make($request->password);
+        $profile=$this->getUser($id);
+        $profile->name = $request['name'];
+        $profile->email = $request['email'];
+        if (isset($request['password'])) {
+            $profile->password = Hash::make($request['password']);
         }
         $profile->update();
     }
@@ -25,11 +26,11 @@ class UserService
     public function storeUser($request)
     {
         $user = new User();
-        $user->name = $request->name;
-        $user->phone = $request->phone;
-        $user->email = $request->email;
+        $user->name = $request["name"];
+        $user->phone = $request["phone"];
+        $user->email = $request["email"];
         $user->role = User::ROLE_LIBRARIAN;
-        $user->password = Hash::make($request->password);
+        $user->password = Hash::make($request["password"]);
         $user->save();
     }
 
@@ -43,5 +44,11 @@ class UserService
     {
         $user->is_banned = 0;
         $user->update();
+    }
+
+    public function destroy($user)
+    {
+        dd($user);
+        $user->delete();
     }
 }

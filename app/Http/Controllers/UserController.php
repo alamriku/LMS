@@ -27,8 +27,14 @@ class UserController extends Controller
 
     public function profileUpdate(ProfileRequest $request)
     {
-        $profile = $this->userService->getUser($request->id);
-        $this->userService->updateUser($request, $profile);
+
+        $this->userService->updateUser($request->all(), $request->id);
         return redirect()->back()->with('success', 'Profile updated');
+    }
+
+    public function destroy(User $user)
+    {
+        $this->userService->destroy($user);
+        return redirect()->back()->with('success', 'User Deleted');
     }
 }

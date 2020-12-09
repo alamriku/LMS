@@ -78,7 +78,7 @@
 
                                         </button>
                                     </span>
-                                    <form action="{{route('user-delete',$user->id)}}" style="display: none;" id="delete-form{{$user->id}}" method="post">
+                                    <form action="{{route('user.destroy',$user)}}" style="display: none;" id="delete-form{{$user->id}}" method="post">
                                         @csrf
                                         @method("DELETE")
                                     </form>

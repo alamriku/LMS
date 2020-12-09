@@ -45,7 +45,7 @@ class AuthorController extends Controller
      */
     public function store(AuthorRequest $request)
     {
-        $this->authorService->storeAuthor($request);
+        $this->authorService->storeAuthor($request->all());
         return redirect()->back()->with('success', 'Author Added');
     }
 
@@ -80,7 +80,7 @@ class AuthorController extends Controller
      */
     public function update(AuthorRequest $request, Author $author)
     {
-        $this->authorService->updateAuthor($request, $author);
+        $this->authorService->updateAuthor($request->all(), $author);
         return redirect()->back()->with('success', 'Author updated');
     }
 

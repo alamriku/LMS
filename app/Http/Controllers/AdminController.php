@@ -46,11 +46,6 @@ class AdminController extends Controller
         return redirect()->back()->with('success', 'User Status Changed');
     }
 
-    public function delete(User $user)
-    {
-        $user->delete();
-        return redirect()->back()->with('success', 'User Deleted');
-    }
 
     public function create()
     {
@@ -66,52 +61,8 @@ class AdminController extends Controller
 
     public function store(ProfileRequest $request)
     {
-        $this->userService->storeUser($request);
+        $this->userService->storeUser($request->all());
         return redirect()->back()->with('success', 'Librarian Added');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

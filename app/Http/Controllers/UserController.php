@@ -8,9 +8,11 @@ use App\Services\UserService;
 
 class UserController extends Controller
 {
-    public function __construct()
+    protected $userService;
+    public function __construct(UserService $user)
     {
         $this->middleware('auth');
+        $this->userService = $user;
     }
 
     public function profile(User $user)
@@ -23,10 +25,10 @@ class UserController extends Controller
         return view('user.dashboard');
     }
 
-    public function profileUpdate(ProfileRequest $request, UserService $action)
+    public function profileUpdate(ProfileRequest $request)
     {
-        $profile = $action->getUser($request->id);
-        $action->updateUser($request, $profile);
+        $profile = $this->userService->getUser($request->id);
+        $this->userService->updateUser($request, $profile);
         return redirect()->back()->with('success', 'Profile updated');
     }
 }

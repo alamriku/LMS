@@ -41,12 +41,11 @@ class AuthorController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  AuthorRequest  $request
-     * @param  AuthorService  $action
      * @return void
      */
-    public function store(AuthorRequest $request, AuthorService $action)
+    public function store(AuthorRequest $request)
     {
-        $action->storeAuthor($request);
+        $this->authorService->storeAuthor($request);
         return redirect()->back()->with('success', 'Author Added');
     }
 
